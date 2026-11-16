@@ -60,7 +60,7 @@ If you use Home Assistant Container, copy the folder into the host directory mou
 
 ### Python dependency: no manual installation needed
 
-Home Assistant installs Tapo Local's required `python-kasa>=0.11.0.1` dependency automatically from the integration manifest. **Do not run `pip install` inside a normal Home Assistant installation.** For a separate developer Python environment, see [Contributing](CONTRIBUTING.md).
+Home Assistant installs Tapo Local's required `python-kasa>=0.11.0.1,<0.13.0` dependency automatically from the integration manifest. **Do not run `pip install` inside a normal Home Assistant installation.** For a separate developer Python environment, see [Contributing](CONTRIBUTING.md).
 
 ## Find devices automatically
 

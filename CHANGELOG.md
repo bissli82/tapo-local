@@ -13,7 +13,7 @@ Release notes tell you what changed, what to do after updating, and what is stil
 ### Compatibility
 - Add a Home Assistant Core 2026.11.1 import qualification job. Real hardware control and cloud provisioning require owner verification.
 
-### Upgrade
+### Upgrade notes
 - Use HACS to upgrade and restart Home Assistant. Preserve existing DL100 and switch entries; do not delete working locks.
 
 ## 0.7.9
