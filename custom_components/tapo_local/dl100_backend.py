@@ -234,7 +234,7 @@ class DL100LocalDevice:
             await self._persist_session()
         except Exception as exc:
             raise DL100SessionError(
-                f"{reason}; automatic reauthentication failed: {exc}"
+                f"{reason}; automatic reauthentication failed"
             ) from exc
         _LOGGER.info("DL100 %s automatic DLKLAP reauthentication succeeded", self.host)
 

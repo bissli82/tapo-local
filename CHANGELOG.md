@@ -2,6 +2,20 @@
 
 Release notes tell you what changed, what to do after updating, and what is still limited. New releases use their matching changelog section as GitHub release notes. [See all public releases](https://github.com/gigabytegrove/tapo-local/releases).
 
+## 0.7.10
+
+### Security
+- Remove raw exception contents from DL100 cloud owner reauthentication and session restoration error surfaces; preserve previous session state.
+- Keep DL100 secrets in Home Assistant private storage; no device re-pairing or identity migration.
+- Constrain python-kasa to the 0.11.x and 0.12.x families, avoiding uncontrolled future protocol upgrades.
+- Add CodeQL and security-contract regression tests. Restrict privileged release workflows to successful first-party main pushes.
+
+### Compatibility
+- Add a Home Assistant Core 2026.11.1 import qualification job. Real hardware control and cloud provisioning require owner verification.
+
+### Upgrade
+- Use HACS to upgrade and restart Home Assistant. Preserve existing DL100 and switch entries; do not delete working locks.
+
 ## 0.7.9
 
 ### Fixed
