@@ -183,6 +183,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
                 session_state=session_state,
                 session_saver=_save_private_session,
                 session_refresher=_refresh_dl100_session if username and password else None,
+                model=entry.data.get("model"),
             )
         except Exception as exc:
             raise ConfigEntryNotReady("DL100 local session is invalid; reauthorize the lock") from exc

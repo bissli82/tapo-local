@@ -2,6 +2,19 @@
 
 Release notes tell you what changed, what to do after updating, and what is still limited. New releases use their matching changelog section as GitHub release notes. [See all public releases](https://github.com/gigabytegrove/tapo-local/releases).
 
+## Unreleased
+
+### Added
+- Tapo DL130 smart locks. The DL130 reports `SMART.TAPOLOCK` / `DL130(US)` and uses the DL100's DLKLAP protocol on HTTP port 80, so it runs on the existing DL100 backend: network scan, targeted discovery, owner-account lock list and session setup now accept both models.
+- The lock model saved at setup is kept, so a DL130 is no longer reported as a DL100 when the lock omits its model.
+
+### Fixed
+- The "Select the correct lock" step now shows readable lock names. Tapo's cloud device list returns nicknames base64-encoded, and they were shown as raw text.
+- Setup and repair dialogs now say DL100/DL130 instead of DL100 only.
+
+### Upgrade notes
+- No action needed for existing DL100 entries. Add a DL130 the same way as a DL100, using its IP address.
+
 ## 0.7.10
 
 ### Security

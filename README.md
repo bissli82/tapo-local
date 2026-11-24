@@ -86,6 +86,8 @@ This is often easier than scanning a separate VLAN. Home Assistant still needs p
 
 The DL100 is different from a normal Kasa switch.
 
+The **DL130** uses the same local protocol and setup steps, so everything in this section applies to it too.
+
 - **During setup:** Tapo Local asks for the original **owner's** Tapo account credentials. It briefly contacts TP-Link to create an encrypted connection to the lock. A shared account may not have permission to authorize that connection.
 - **During normal use:** Home Assistant reads the lock and sends lock/unlock commands over your local network.
 - **If the encrypted session expires:** Home Assistant may use the owner's saved credentials to contact TP-Link again and renew it automatically. The credentials and session material are stored privately by Home Assistant.
@@ -139,8 +141,9 @@ Keep your working configuration entries. If you installed manually, replace only
 | Supported fan controls | Fan controls |
 | Supported hubs and child sensors | Motion, contact, leak, temperature, humidity and battery information |
 | Tapo DL100 | Lock control, lock status and battery information |
+| Tapo DL130 | Lock control, lock status and battery information (shares the DL100's local protocol) |
 
-The currently documented hands-on test models are **KS200, KS200M, and DL100**. Support for other devices depends on their hardware revision, local communication protocol, and which features Tapo Local can map into Home Assistant. See the [full device list](SUPPORTED_DEVICES.md).
+The currently documented hands-on test models are **KS200, KS200M, DL100, and DL130**. Support for other devices depends on their hardware revision, local communication protocol, and which features Tapo Local can map into Home Assistant. See the [full device list](SUPPORTED_DEVICES.md).
 
 **Not currently offered as first-class platforms:** cameras, video doorbells, robot vacuums, thermostat/climate control, and live button-press events from S200B/S200D.
 

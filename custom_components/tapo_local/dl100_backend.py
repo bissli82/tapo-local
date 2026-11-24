@@ -172,7 +172,7 @@ SessionRefresher = Callable[[], Awaitable[dict[str, Any]]]
 
 
 class DL100LocalDevice:
-    """Local-only controller for one DL100 using a restored DLKLAP session."""
+    """Local-only controller for one DL100/DL130 using a restored DLKLAP session."""
 
     def __init__(
         self,
@@ -182,9 +182,13 @@ class DL100LocalDevice:
         session_saver: SessionSaver | None = None,
         session_refresher: SessionRefresher | None = None,
         timeout: float = 5.0,
+        model: str | None = None,
     ) -> None:
         self.host = host
         self.timeout = timeout
+        # DL100 and DL130 share this DLKLAP runtime; keep the configured model
+        # as the fallback when the lock omits it from its running info.
+        self.model = str(model or "DL100")
         self._session = DL100LocalSession.from_state(session_state)
         self._session_saver = session_saver
         self._session_refresher = session_refresher
@@ -341,7 +345,7 @@ class DL100LocalDevice:
             result = await self.request(method)
             self._merge_result(sysinfo, result)
 
-        sysinfo.setdefault("model", "DL100")
+        sysinfo.setdefault("model", self.model)
         sysinfo.setdefault("mic_type", "SMART.TAPOLOCK")
         return {"sysinfo": sysinfo}
 
